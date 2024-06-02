@@ -3,6 +3,7 @@ from datetime import datetime
 from dateutil.rrule import rrulestr
 
 PATH = 'duedates.ics'
+DATE_FORMAT = '%b %d'
 
 # Function to extract events
 def extract_events():
@@ -31,7 +32,7 @@ def extract_events():
 def add_event(summary, date, seen_events, events):
     event = {
         'task': summary,
-        'date': date.strftime('%b %d'),
+        'date': date.strftime(DATE_FORMAT),
         'numeric': date.strftime('%m%d')
     }
     event_tuple = (event['task'], event['date'])
